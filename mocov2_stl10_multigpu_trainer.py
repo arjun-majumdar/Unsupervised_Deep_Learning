@@ -235,7 +235,7 @@ def main(
             if train_loss < best_train_loss:
                 best_train_loss = train_loss.item()
                 print(f"Saving model with lowest train loss = {train_loss.item():.4f}\n")        
-                torch.save(moco.state_dict(), "mocov2_stl10_best_trainloss.pth")
+                torch.save(moco.module.state_dict(), "mocov2_stl10_best_trainloss.pth")
                 torch.save(moco.module.queue, 'mocov2_stl10_queue_best_trainloss.pth')
                 torch.save(optimizer.state_dict(), 'mocov2_lars_sgd_optim_best_trainloss.pth')
 
